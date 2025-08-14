@@ -5,6 +5,7 @@ export default function Home() {
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full min-h-screen p-8">
+          
           <a
             href="/websites/dripify"
             className="flex flex-col items-center border border-black/10 dark:border-white/20 rounded-lg p-4 hover:shadow-lg transition"
@@ -18,9 +19,9 @@ export default function Home() {
             />
             <span className="mt-3 font-medium text-lg">Dripify</span>
           </a>
+
           <a
             className="flex flex-col items-center border border-black/10 dark:border-white/20 rounded-lg p-4 hover:shadow-lg transition h-full"
-
             href="/websites/applestore"
           >
             <Image
@@ -28,30 +29,27 @@ export default function Home() {
               alt="Apple"
               width={300}
               height={0}
-            
               className="rounded-lg object-cover"
             />
             <span className="mt-3 font-medium text-lg">Apple Store</span>
           </a>
-          <a
-             className="flex flex-col items-center border border-black/10 dark:border-white/20 rounded-lg p-4 hover:shadow-lg transition h-full"
 
+          <a
+            className="flex flex-col items-center border border-black/10 dark:border-white/20 rounded-lg p-4 hover:shadow-lg transition h-full"
             href="/websites/cogniai"
           >
             <Image
-              src="/images/cogniAi.png"
-              alt="cogniAi"
+              src="/images/cogniAI.png"
+              alt="CogniAI"
               width={300}
               height={0}
-            
               className="rounded-lg object-cover"
             />
             <span className="mt-3 font-medium text-lg">CogniAI</span>
           </a>
-          <a
-           className="flex flex-col items-center border border-black/10 dark:border-white/20 rounded-lg p-4 hover:shadow-lg transition h-full"
 
-           
+          <a
+            className="flex flex-col items-center border border-black/10 dark:border-white/20 rounded-lg p-4 hover:shadow-lg transition h-full"
             href="/websites/architect"
           >
             <Image
@@ -59,42 +57,41 @@ export default function Home() {
               alt="Architect"
               width={300}
               height={0}
-            
               className="rounded-lg object-cover"
             />
             <span className="mt-3 font-medium text-lg">Architect</span>
           </a>
+
           <a
-           className="flex flex-col items-center border border-black/10 dark:border-white/20 rounded-lg p-4 hover:shadow-lg transition h-full"
+            className="flex flex-col items-center border border-black/10 dark:border-white/20 rounded-lg p-4 hover:shadow-lg transition h-full"
             href="/websites/clickup"
           >
             <Image
               src="/images/clickup.png"
-              alt="clickup"
+              alt="ClickUp"
               width={300}
               height={0}
-            
               className="rounded-lg object-cover"
             />
             <span className="mt-3 font-medium text-lg">Click Up</span>
           </a>
+
           <a
             className="flex flex-col items-center border border-black/10 dark:border-white/20 rounded-lg p-4 hover:shadow-lg transition h-full"
-
             href="/websites/freshfield"
           >
             <Image
               src="/images/freshfield.png"
-              alt="freshfield"
+              alt="Freshfield"
               width={300}
               height={0}
-           
               className="rounded-lg object-cover"
             />
             <span className="mt-3 font-medium text-lg">Freshfield</span>
           </a>
+
           <a
-            className="flex flex-col items-center border border-black/10 dark:border-white/20 rounded-lg p-4 hover:shadow-lg transition h-full" 
+            className="flex flex-col items-center border border-black/10 dark:border-white/20 rounded-lg p-4 hover:shadow-lg transition h-full"
             href="/websites/renewio"
           >
             <Image
@@ -102,24 +99,25 @@ export default function Home() {
               alt="Renewio"
               width={300}
               height={0}
-             
               className="rounded-lg object-cover"
             />
             <span className="mt-3 font-medium text-lg">Renewio</span>
           </a>
+
           <a
             className="flex flex-col items-center border border-black/10 dark:border-white/20 rounded-lg p-4 hover:shadow-lg transition h-full"
             href="/websites/health"
-          ><Image
+          >
+            <Image
               src="/images/health.png"
               alt="Health"
               width={300}
               height={0}
-            
               className="rounded-lg object-cover"
             />
             <span className="mt-3 font-medium text-lg">Health</span>
           </a>
+
           <a
             className="flex flex-col items-center border border-black/10 dark:border-white/20 rounded-lg p-4 hover:shadow-lg transition h-full"
             href="/websites/rebuild"
@@ -129,24 +127,25 @@ export default function Home() {
               alt="Rebuild"
               width={300}
               height={0}
-             
               className="rounded-lg object-cover"
             />
             <span className="mt-3 font-medium text-lg">Rebuild</span>
           </a>
+
           <a
             className="flex flex-col items-center border border-black/10 dark:border-white/20 rounded-lg p-4 hover:shadow-lg transition h-full"
             href="/websites/ecofins"
-          ><Image
+          >
+            <Image
               src="/images/ecofins.png"
               alt="Ecofins"
               width={300}
               height={0}
-             
               className="rounded-lg object-cover"
             />
             <span className="mt-3 font-medium text-lg">Ecofins</span>
           </a>
+
           <a
             className="flex flex-col items-center border border-black/10 dark:border-white/20 rounded-lg p-4 hover:shadow-lg transition h-full"
             href="/websites/passionfroot"
@@ -156,12 +155,11 @@ export default function Home() {
               alt="Passionfroot"
               width={300}
               height={0}
-             
-            
               className="rounded-lg object-cover"
             />
             <span className="mt-3 font-medium text-lg">PassionFroot</span>
           </a>
+
           <a
             className="flex flex-col items-center border border-black/10 dark:border-white/20 rounded-lg p-4 hover:shadow-lg transition h-full"
             href="/websites/wavespace"
@@ -175,6 +173,7 @@ export default function Home() {
             />
             <span className="mt-3 font-medium text-lg">WaveSpace</span>
           </a>
+
           <a
             className="flex flex-col items-center border border-black/10 dark:border-white/20 rounded-lg p-4 hover:shadow-lg transition h-full"
             href="/websites/ebook"
@@ -188,6 +187,7 @@ export default function Home() {
             />
             <span className="mt-3 font-medium text-lg">eBook</span>
           </a>
+
           <a
             className="flex flex-col items-center border border-black/10 dark:border-white/20 rounded-lg p-4 hover:shadow-lg transition h-full"
             href="/websites/lyniq"
@@ -201,6 +201,7 @@ export default function Home() {
             />
             <span className="mt-3 font-medium text-lg">Lyniq</span>
           </a>
+
           <a
             className="flex flex-col items-center border border-black/10 dark:border-white/20 rounded-lg p-4 hover:shadow-lg transition h-full"
             href="/websites/unifi"
@@ -214,6 +215,7 @@ export default function Home() {
             />
             <span className="mt-3 font-medium text-lg">Unifi</span>
           </a>
+
           <a
             className="flex flex-col items-center border border-black/10 dark:border-white/20 rounded-lg p-4 hover:shadow-lg transition h-full"
             href="/websites/jeton"
@@ -227,9 +229,11 @@ export default function Home() {
             />
             <span className="mt-3 font-medium text-lg">Jeton</span>
           </a>
+
         </div>
       </main>
     </div>
   );
 }
+
 
