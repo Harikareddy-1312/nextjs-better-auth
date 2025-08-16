@@ -1,0 +1,8 @@
+import { auth } from "@/lib/auth";
+import { NextRequest } from "next/server";
+export async function GET(req: NextRequest) {
+  return auth(req);
+}
+export async function POST(req: NextRequest) {
+  return auth(req);
+}
