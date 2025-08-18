@@ -1,18 +1,18 @@
+// src/lib/auth.ts
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { db } from "@/db"; 
+import { db } from "./db";
+import * as schema from "./schema";
+import { nextCookies } from "better-auth/next-js";
 
-const authInstance = betterAuth({
-  secret: process.env.BETTER_AUTH_SECRET!,
-  baseURL: process.env.BETTER_AUTH_URL!,
-  database: drizzleAdapter(db, { provider: "pg" }),
-  emailAndPassword: { enabled: true },
+export const auth = betterAuth({
+  database: drizzleAdapter(db, { provider: "pg", schema }), // connect Drizzle + Postgres
+  appName: "MyApp", // your app name
   socialProviders: {
     google: {
-      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientId: process.env.GOOGLE_CLIENT_ID!, // from Google Cloud Console
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-      redirectUri: `${process.env.BETTER_AUTH_URL}/api/auth/callback/google`,
     },
   },
+  plugins: [nextCookies()], // handles cookies/sessions for Next.js
 });
-export const auth = (req: Request) => authInstance.handler(req);
