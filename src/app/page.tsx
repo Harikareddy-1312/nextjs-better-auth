@@ -1,14 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import { websiteData } from "./websitesData";
-import LoginButton from "@/components/LoginButton"; // 👈 import your button
+import LoginButton from "@/components/LoginButton"; 
 
 export default function Page() {
   return (
     <main className="min-h-screen bg-gray-50 p-6">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold">Websites</h1>
-        <LoginButton /> {/* 👈 shows Google login button */}
+        <LoginButton /> 
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -1,6 +1,6 @@
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { db } from "@/db"; // Make sure this path exists
+import { db } from "@/db"; 
 
 const authInstance = betterAuth({
   secret: process.env.BETTER_AUTH_SECRET!,
