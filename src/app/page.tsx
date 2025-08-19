@@ -1,47 +1,57 @@
-import React from "react";
-import Image from "next/image";
-import { websiteData } from "./websitesData";
-import LoginButton from "@/components/LoginButton"; 
+"use client";
 
-export default function Page() {
+import { useState } from "react";
+import { useRouter } from "next/navigation"; // For redirecting
+
+export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null);
+
+    // Simple front-end validation
+    if (!email || !password) {
+      setError("Please enter email and password");
+      return;
+    }
+
+    // Demo login success
+    router.push("/websites"); // Redirect to websites page
+  };
+
   return (
-    <main className="min-h-screen bg-gray-50 p-6">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">Websites</h1>
-        <LoginButton /> 
-      </div>
+    <div className="max-w-md mx-auto mt-32 p-6 bg-white shadow rounded-lg">
+      <h1 className="text-2xl font-bold mb-6 text-center">Sign In</h1>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {websiteData.map((site, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-2xl shadow hover:shadow-lg transition p-4"
-          >
-            <div className="w-full h-48 relative mb-4">
-              <Image
-                src={site.image}
-                alt={site.title}
-                fill
-                className="object-cover rounded-xl"
-              />
-            </div>
-            <h2 className="text-xl font-semibold mb-2">{site.title}</h2>
-            <p className="text-gray-600 mb-3">{site.description}</p>
-            <div className="flex flex-wrap gap-2">
-              {site.tags.map((tag, tagIndex) => (
-                <span
-                  key={tagIndex}
-                  className="text-sm bg-gray-100 px-2 py-1 rounded-full"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <p className="mt-3 text-sm text-gray-500">{site.industry}</p>
-          </div>
-        ))}
-      </div>
-    </main>
+      <form onSubmit={handleLogin} className="space-y-4">
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full px-3 py-2 border rounded"
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full px-3 py-2 border rounded"
+          required
+        />
+        <button
+          type="submit"
+          className="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
+          Sign in
+        </button>
+        {error && <p className="text-red-600 mt-2">{error}</p>}
+      </form>
+    </div>
   );
 }
-

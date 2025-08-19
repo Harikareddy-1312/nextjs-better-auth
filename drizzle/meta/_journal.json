@@ -8,6 +8,13 @@
       "when": 1755338831192,
       "tag": "0000_aspiring_blob",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1755599627317,
+      "tag": "0001_exotic_nemesis",
+      "breakpoints": true
     }
   ]
 }
