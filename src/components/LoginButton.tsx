@@ -1,12 +1,24 @@
 "use client";
 
+import { authclient } from "@/lib/auth-client";
+
 export default function LoginButton() {
+  const handleGoogleLogin = async () => {
+    try {
+      await authclient.signIn({
+        provider: "google",
+      });
+    } catch (err) {
+      console.error("Google login failed:", err);
+    }
+  };
+
   return (
-    <a
-      href="/api/auth/signin/google"
-      className="px-4 py-2 bg-blue-500 text-white rounded"
+    <button
+      onClick={handleGoogleLogin}
+      className="px-4 py-2 bg-blue-600 text-white rounded-lg"
     >
       Sign in with Google
-    </a>
+    </button>
   );
 }
