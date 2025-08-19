@@ -1,28 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation"; // For redirecting
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
-
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
-
-    // Simple front-end validation
     if (!email || !password) {
       setError("Please enter email and password");
       return;
     }
-
-    // Demo login success
-    router.push("/websites"); // Redirect to websites page
+    router.push("/websites"); 
   };
-
   return (
     <div className="max-w-md mx-auto mt-32 p-6 bg-white shadow rounded-lg">
       <h1 className="text-2xl font-bold mb-6 text-center">Sign In</h1>
