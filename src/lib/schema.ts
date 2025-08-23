@@ -1,44 +1,45 @@
-import { pgTable, serial, text, varchar, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, text, timestamp, boolean } from "drizzle-orm/pg-core";
 
-// Users table
-export const users = pgTable("users", {
-  id: serial("id").primaryKey(),
-  email: varchar("email", { length: 255 }).notNull(),
-  password: varchar("password", { length: 255 }).notNull(),
-  createdAt: timestamp("created_at").defaultNow(),
+export const user = pgTable("user", {
+  id: text("id").primaryKey(),
+  name: text("name").notNull(),
+  email: text("email").notNull().unique(),
+  emailVerified: boolean("email_verified").$defaultFn(() => false).notNull(),
+  image: text("image"),
+  createdAt: timestamp("created_at").$defaultFn(() => new Date()).notNull(),
+  updatedAt: timestamp("updated_at").$defaultFn(() => new Date()).notNull(),
 });
 
-// Accounts table
-export const accounts = pgTable("accounts", {
-  id: serial("id").primaryKey(),
-  userId: text("user_id").notNull(),
-  provider: varchar("provider", { length: 255 }).notNull(),
-  providerAccountId: varchar("provider_account_id", { length: 255 }).notNull(),
-  refreshToken: text("refresh_token"),
+export const session = pgTable("session", {
+  id: text("id").primaryKey(),
+  userId: text("user_id").notNull().references(() => user.id, { onDelete: "cascade" }),
+  token: text("token").notNull().unique(),
+  expiresAt: timestamp("expires_at").notNull(),
+  createdAt: timestamp("created_at").notNull(),
+  updatedAt: timestamp("updated_at").notNull(),
+});
+
+export const account = pgTable("account", {
+  id: text("id").primaryKey(),
+  userId: text("user_id").notNull().references(() => user.id, { onDelete: "cascade" }),
+  providerId: text("provider_id").notNull(),
+  accountId: text("account_id").notNull(),
   accessToken: text("access_token"),
-  expiresAt: timestamp("expires_at"),
+  refreshToken: text("refresh_token"),
+  idToken: text("id_token"),
+  accessTokenExpiresAt: timestamp("access_token_expires_at"),
+  refreshTokenExpiresAt: timestamp("refresh_token_expires_at"),
+  createdAt: timestamp("created_at").notNull(),
+  updatedAt: timestamp("updated_at").notNull(),
 });
 
-// Sessions table
-export const sessions = pgTable("sessions", {
-  id: serial("id").primaryKey(),
-  userId: text("user_id").notNull(),
-  expires: timestamp("expires").notNull(),
-  sessionToken: varchar("session_token", { length: 255 }).notNull(),
-});
-
-// Verification table
 export const verification = pgTable("verification", {
-  id: serial("id").primaryKey(),
-  identifier: varchar("identifier", { length: 255 }).notNull(),
-  token: varchar("token", { length: 255 }).notNull(),
-  expires: timestamp("expires").notNull(),
+  id: text("id").primaryKey(),
+  identifier: text("identifier").notNull(),
+  token: text("token").notNull(),
+  expiresAt: timestamp("expires_at").notNull(),
+  createdAt: timestamp("created_at").$defaultFn(() => new Date()).notNull(),
+  updatedAt: timestamp("updated_at").$defaultFn(() => new Date()).notNull(),
 });
 
-// Export schema
-export const authSchema = {
-  users,
-  accounts,
-  sessions,
-  verification,
-};
+export const authSchema = { user, session, account, verification };

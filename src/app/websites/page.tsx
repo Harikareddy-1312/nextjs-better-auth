@@ -1,4 +1,4 @@
-"use client"; // <-- add this at the top
+"use client"; 
 
 import { websiteData } from "../websitesData";
 import { useRouter } from "next/navigation";
@@ -7,13 +7,11 @@ export default function WebsitesPage() {
   const router = useRouter();
 
   const handleLogout = () => {
-    // Clear session if using auth, for demo just redirect
-    router.push("/"); // go back to login page
+    router.push("/"); 
   };
 
   return (
     <main className="p-6 max-w-6xl mx-auto relative">
-      {/* Logout Button */}
       <button
         onClick={handleLogout}
         className="absolute top-6 right-6 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"

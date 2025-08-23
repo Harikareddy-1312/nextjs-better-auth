@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -8,19 +7,21 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
+
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+
     if (!email || !password) {
       setError("Please enter email and password");
       return;
     }
-    router.push("/websites"); 
+    router.push("/websites");
   };
+
   return (
     <div className="max-w-md mx-auto mt-32 p-6 bg-white shadow rounded-lg">
       <h1 className="text-2xl font-bold mb-6 text-center">Sign In</h1>
-
       <form onSubmit={handleLogin} className="space-y-4">
         <input
           type="email"
